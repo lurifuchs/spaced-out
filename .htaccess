@@ -1,0 +1,10 @@
+# Deny direct access everything except index.php
+
+DirectoryIndex index.php
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+RewriteRule !^(public/|index\.php) [NC,F]
